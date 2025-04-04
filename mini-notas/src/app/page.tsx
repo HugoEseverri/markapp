@@ -1,9 +1,12 @@
+import UpperBody from "@/components/Home/UpperBody/UpperBody";
 import MarkdownEditor from "@/components/Markdown";
+import Navbar from "@/components/Navbar/Navbar";
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-800 p-4">
-      <MarkdownEditor />
+    <div>
+      <Navbar/>
+      <UpperBody/>
     </div>
   );
 }
