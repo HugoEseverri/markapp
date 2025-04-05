@@ -5,15 +5,14 @@ function MiddleBody() {
     return (
         <div className="bg-gray-50">
             <div className="mx-[20px]">
-                <h1 className="text-6xl text-black py-[30px]">Blog</h1>
+                <h1 className="text-8xl text-black py-[50px]">Blog</h1>
             </div>
 
             <hr className="border-t border-gray-800 mx-[20px] h-1 pb-4" />
 
-            <div className="flex gap-4 justify-center px-[20px]">
-                {/* Tarjeta 1 */}
-                <div className="w-[400px]">
-                    <div className="relative w-full h-[250px]">
+            <div className="flex gap-4 justify-center px-[10px] py-8">
+                <div className="w-[600px]">
+                    <div className="relative w-full h-[350px]">
                         <Image
                             src="/noticia2.jpg"
                             alt="Fondo"
@@ -28,11 +27,11 @@ function MiddleBody() {
                     <p className="text-gray-700">
                         Consejos útiles para sacarle el máximo provecho a tus notas.
                     </p>
+                    <hr className="border-t border-black h-1 pb-4" />
                 </div>
 
-                {/* Tarjeta 2 */}
-                <div className="w-[400px]">
-                    <div className="relative w-full h-[250px]">
+                <div className="w-[600px]">
+                    <div className="relative w-full h-[350px]">
                         <Image
                             src="/noticia2.jpg"
                             alt="Fondo"
@@ -47,11 +46,11 @@ function MiddleBody() {
                     <p className="text-gray-700">
                         Una interfaz simple para que nunca olvides nada importante.
                     </p>
+                    <hr className="border-t border-black h-1 pb-4" />
                 </div>
 
-                {/* Tarjeta 3 */}
-                <div className="w-[400px]">
-                    <div className="relative w-full h-[250px]">
+                <div className="w-[600px]">
+                    <div className="relative w-full h-[350px]">
                         <Image
                             src="/noticia2.jpg"
                             alt="Fondo"
@@ -66,6 +65,7 @@ function MiddleBody() {
                     <p className="text-gray-700">
                         Organizá tus ideas de forma rápida y eficiente.
                     </p>
+                    <hr className="border-t border-black h-1 pb-4" />
                 </div>
             </div>
 

@@ -1,3 +1,4 @@
+import LowBody from "@/components/Home/LowBody/LowBody";
 import MiddleBody from "@/components/Home/MiddleBody/MiddleBody";
 import MiddleLowBody from "@/components/Home/MiddleLowBody/MiddleLowBody";
 import UpperBody from "@/components/Home/UpperBody/UpperBody";
@@ -11,6 +12,7 @@ export default function Home() {
       <UpperBody/>
       <MiddleBody/>
       <MiddleLowBody/>
+      <LowBody/>
     </div>
   );
 }
