@@ -1,3 +1,5 @@
+import Footer from "@/components/Footer/Footer";
+import Características from "@/components/Home/Características/Características";
 import Down from "@/components/Home/Down/Down";
 import LowBody from "@/components/Home/LowBody/LowerBody";
 import MiddleBody from "@/components/Home/MiddleBody/MiddleBody";
@@ -15,6 +17,8 @@ export default function Home() {
       <MiddleLowBody/>
       <LowBody/>
       <Down/>
+      <Características/>
+      <Footer/>
     </div>
   );
 }

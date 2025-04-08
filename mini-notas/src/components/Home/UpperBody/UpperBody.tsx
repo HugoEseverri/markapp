@@ -13,7 +13,7 @@ function UpperBody() {
         style={{ objectFit: "cover" }}
       />
       <div className="absolute inset-0 flex flex-col items-center justify-evenly text-white z-10">
-        <h1 className="text-4xl font-bold mb-4">Descubre Mark App</h1>
+        <h1 className="text-6xl font-bold mb-4">Descubre Mark App</h1>
         <div className='flex flex-col items-center'>
           <h2 className="text-2xl mb-6">La mejor herramienta para notas</h2>
           <button className="bg-white/30 backdrop-blur-md hover:bg-white/40 text-gray-100 px-6 py-3 rounded-4xl shadow-md transition duration-300 cursor-pointer">
