@@ -24,20 +24,32 @@ function Footer() {
                         </div>
 
                         <div className="flex gap-3">
-                            <Image
-                                src="/camara.png"
-                                alt="Instagram"
-                                width={100}
-                                height={100}
-                                className="invert"
-                            />
-                            <Image
-                                src="/facebook.png"
-                                alt="Facebook"
-                                width={100}
-                                height={100}
-                                className="invert"
-                            />
+                            <a
+                                href="https://www.instagram.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/camara.png"
+                                    alt="Instagram"
+                                    width={100}
+                                    height={100}
+                                    className="invert"
+                                />
+                            </a>
+                            <a
+                                href="https://www.facebook.com/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                <Image
+                                    src="/facebook.png"
+                                    alt="Facebook"
+                                    width={100}
+                                    height={100}
+                                    className="invert"
+                                />
+                            </a>
                         </div>
                     </div>
                 </div>

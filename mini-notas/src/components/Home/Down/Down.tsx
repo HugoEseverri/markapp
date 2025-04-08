@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 function Down() {
     return (
-        <div className='bg-[#effe8a] h-[1000px] pt-10'>
+        <div className='bg-[#effe8a] h-[900px] pt-10'>
             <div className="w-[1000px] mr-10 ml-auto text-right">
                 <div className='flex items-center'>
                     <div>
@@ -69,7 +69,6 @@ function Down() {
                     </div>
                 </div>
             </div>
-            <hr className="border-t border-black  h-1 pt-10" />
         </div>
 
     )

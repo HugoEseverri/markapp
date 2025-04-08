@@ -33,7 +33,7 @@ function MiddleBody() {
                 <div className="w-[600px]">
                     <div className="relative w-full h-[350px]">
                         <Image
-                            src="/noticia2.jpg"
+                            src="/nota2.jpg"
                             alt="Fondo"
                             fill
                             priority
@@ -52,7 +52,7 @@ function MiddleBody() {
                 <div className="w-[600px]">
                     <div className="relative w-full h-[350px]">
                         <Image
-                            src="/noticia2.jpg"
+                            src="/nota3.jpg"
                             alt="Fondo"
                             fill
                             priority
