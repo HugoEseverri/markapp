@@ -10,12 +10,12 @@ function MiddleLowBody() {
             </div>
 
             <div className="flex flex-col items-start xl:flex-row">
-                <div className="relative h-[450px] w-[400px] mx-[30px] mt-30">
+                <div className="relative w-full max-w-[400px] aspect-[4/5] mx-auto mt-10 px-4">
                     <Image
                         src="/mark2.png"
                         alt="Fondo"
                         fill
-                        className="object-cover "
+                        className="object-cover rounded-xl"
                         priority
                     />
                 </div>
