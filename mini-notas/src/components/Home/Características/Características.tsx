@@ -5,10 +5,10 @@ function Características() {
         <div className='bg-[#161b1c]'>
             <div className='text-left'>
                 <h1 className="text-6xl text-white py-[50px] mx-10">Preguntas Frecuentes?</h1>
-                <h2 className='text-5xl text-white mx-10'>Respuestas Rápidas</h2>
-                <p className='mx-10 pt-[30px] w-[650px]'>Encuentra respuestas a las preguntas más comunes sobre el uso de Mark App y sacá el máximo provecho de nuestra apliación.</p>
+                <h2 className='mx-10 text-5xl text-white'>Respuestas Rápidas</h2>
+                <p className='mx-10 pt-[30px] lg:w-[650px]'>Encuentra respuestas a las preguntas más comunes sobre el uso de Mark App y sacá el máximo provecho de nuestra apliación.</p>
             </div>
-            <div className='text-left mx-[300px] py-[50px]'>
+            <div className='text-left mx-6 lg:mx-[300px] py-[50px]'>
                 <div className='py-[40px]'>
                     <h3 className='pb-[25px]'>Problemas Técnicos</h3>
                     <p>Si experimentas algún problema técnico con Mark App, nuestro equipo de soporte está acá para ayudarte. Contactanos para recibir asistencia inmediata y resolver cualquier inconveniente que puedas enfrentar.</p>
