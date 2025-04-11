@@ -1,5 +1,30 @@
-import React from 'react'
+'use client'
+import React, { useEffect } from 'react'
 import Image from 'next/image'
+import { motion, useAnimation } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
+
+function AnimatedCard({ children }: { children: React.ReactNode }) {
+    const controls = useAnimation()
+    const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.2 })
+
+    useEffect(() => {
+        if (inView) {
+            controls.start({ opacity: 1, y: 0 })
+        }
+    }, [inView, controls])
+
+    return (
+        <motion.div
+            ref={ref}
+            initial={{ opacity: 0, y: 50 }}
+            animate={controls}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+        >
+            {children}
+        </motion.div>
+    )
+}
 
 function MiddleBody() {
     return (
@@ -11,67 +36,38 @@ function MiddleBody() {
             <hr className="border-t border-gray-800 mx-[20px] h-1 pb-4" />
 
             <div className="flex flex-wrap gap-4 justify-center px-[10px] py-8">
-                <div className="w-[600px]">
-                    <div className="relative w-full h-[350px]">
-                        <Image
-                            src="/noticia2.jpg"
-                            alt="Fondo"
-                            fill
-                            priority
-                            className="object-cover"
-                        />
-                    </div>
-                    <h2 className="mt-4 text-lg text-black">
-                        Cómo mejorar la productividad con Mark App
-                    </h2>
-                    <p className="text-gray-700">
-                        Consejos útiles para sacarle el máximo provecho a tus notas.
-                    </p>
-                    <hr className="h-1 pb-4 border-t border-black" />
-                </div>
-
-                <div className="w-[600px]">
-                    <div className="relative w-full h-[350px]">
-                        <Image
-                            src="/nota2.jpg"
-                            alt="Fondo"
-                            fill
-                            priority
-                            className="object-cover"
-                        />
-                    </div>
-                    <h2 className="mt-4 text-lg text-black">
-                        Anotá fácil en Mark App
-                    </h2>
-                    <p className="text-gray-700">
-                        Una interfaz simple para que nunca olvides nada importante.
-                    </p>
-                    <hr className="h-1 pb-4 border-t border-black" />
-                </div>
-
-                <div className="w-[600px]">
-                    <div className="relative w-full h-[350px]">
-                        <Image
-                            src="/nota3.jpg"
-                            alt="Fondo"
-                            fill
-                            priority
-                            className="object-cover"
-                        />
-                    </div>
-                    <h2 className="mt-4 text-lg text-black">
-                        Guardá todas tus anotaciones en Mark App
-                    </h2>
-                    <p className="text-gray-700">
-                        Organizá tus ideas de forma rápida y eficiente.
-                    </p>
-                    <hr className="h-1 pb-4 border-t border-black" />
-                </div>
+                {[{
+                    img: "/noticia2.jpg",
+                    title: "Cómo mejorar la productividad con Mark App",
+                    desc: "Consejos útiles para sacarle el máximo provecho a tus notas."
+                }, {
+                    img: "/nota2.jpg",
+                    title: "Anotá fácil en Mark App",
+                    desc: "Una interfaz simple para que nunca olvides nada importante."
+                }, {
+                    img: "/nota3.jpg",
+                    title: "Guardá todas tus anotaciones en Mark App",
+                    desc: "Organizá tus ideas de forma rápida y eficiente."
+                }].map((item, idx) => (
+                    <AnimatedCard key={idx}>
+                        <div className="w-[600px]">
+                            <div className="relative w-full h-[350px]">
+                                <Image
+                                    src={item.img}
+                                    alt="Fondo"
+                                    fill
+                                    priority
+                                    className="object-cover"
+                                />
+                            </div>
+                            <h2 className="mt-4 text-lg text-black">{item.title}</h2>
+                            <p className="text-gray-700">{item.desc}</p>
+                            <hr className="h-1 pb-4 border-t border-black" />
+                        </div>
+                    </AnimatedCard>
+                ))}
             </div>
-
         </div>
-
-
     )
 }
 
