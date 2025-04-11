@@ -13,6 +13,10 @@ El proyecto ha sido desarrollado utilizando una serie de tecnologías modernas q
 - **Framer Motion**: Biblioteca para animaciones y transiciones suaves dentro de la aplicación, mejorando la experiencia visual.
 - **Image Optimization**: Uso de imágenes optimizadas con Next.js, mejorando el rendimiento del sitio y la carga de imágenes.
 
+### **Notas con Markdown**
+- **Markdown** es el lenguaje elegido para la redacción de notas. Su sintaxis simple permite estructurar textos con títulos, listas, énfasis, enlaces y más, de forma rápida y legible.
+- Las notas escritas en Markdown se renderizan en tiempo real, permitiendo al usuario ver cómo lucirá el contenido final mientras escribe.
+
 ### **Backend:**
 - **Node.js**: Entorno de ejecución JavaScript utilizado para construir el servidor.
 - **Express**: Framework de Node.js que facilita la creación de API RESTful para la interacción con el frontend.
