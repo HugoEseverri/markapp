@@ -8,9 +8,8 @@ type Note = {
     title: string;
     content: string;
     createdAt: number;
+    isExpanded: boolean;
 };
-
-
 
 function Notes() {
     const [notes, setNotes] = useState<Note[]>([]);
@@ -28,7 +27,8 @@ function Notes() {
             id: Date.now().toString(),
             title,
             content,
-            createdAt: Date.now()
+            createdAt: Date.now(),
+            isExpanded: false
         };
 
         const updatedNotes = [...notes, newNote];
@@ -41,6 +41,17 @@ function Notes() {
 
     const handleDelete = (id: string) => {
         const updatedNotes = notes.filter(note => note.id !== id);
+        setNotes(updatedNotes);
+        localStorage.setItem("notes", JSON.stringify(updatedNotes));
+    };
+
+    const toggleExpand = (id: string) => {
+        const updatedNotes = notes.map(note => {
+            if (note.id === id) {
+                return { ...note, isExpanded: !note.isExpanded };
+            }
+            return note;
+        });
         setNotes(updatedNotes);
         localStorage.setItem("notes", JSON.stringify(updatedNotes));
     };
@@ -62,6 +73,7 @@ function Notes() {
 
             <div className="mb-6">
                 <label className="block mb-1 text-sm font-semibold text-white">Contenido (Markdown)</label>
+                
                 <textarea
                     placeholder="Ej. ## Título grande\nEscribí lo que quieras..."
                     className="w-full h-40 rounded-md border border-[#effe8a] bg-white p-3 text-black resize-none focus:border-[#effe8a] focus:outline-none focus:ring-1 focus:ring-[#effe8a]"
@@ -77,31 +89,43 @@ function Notes() {
                 Guardar Nota
             </button>
 
-
-            <h2 className="mt-10 mb-4 text-2xl">Notas Guardadas</h2>
-            {notes.map((note) => (
-                <div
-                    key={note.id}
-                    className="p-6 mb-6 transition-shadow bg-white border border-gray-300 shadow-md rounded-xl hover:shadow-lg"
-                >
-                    <h3 className="mb-1 text-xl font-semibold text-gray-800">{note.title}</h3>
-                    <p className="mb-4 text-sm text-gray-500">
-                        {new Date(note.createdAt).toLocaleString()}
-                    </p>
-                    <div className="prose-sm prose text-gray-800 prose-img:rounded-lg prose-img:shadow max-w-none">
-                        <ReactMarkdown>{note.content}</ReactMarkdown>
-                    </div>
-                    <button
-                        onClick={() => handleDelete(note.id)}
-                        className="px-4 py-2 mt-2 text-white bg-red-800 rounded"
+            <h2 className="mt-10 mb-4 text-2xl text-white">Notas Guardadas</h2>
+            <div className="flex flex-wrap gap-6">
+                {notes.map((note) => (
+                    <div
+                        key={note.id}
+                        className={`p-4 border bg-[#cecfc8] w-80 h-80 overflow-hidden rounded-lg flex flex-col ${note.isExpanded ? "h-auto" : "h-80"
+                            }`}
                     >
-                        Borrar
-                    </button>
-                </div>
-            ))}
+                        <h3 className="font-semibold text-[#333] text-lg">{note.title}</h3>
+                        <small className="block text-sm text-gray-600">{new Date(note.createdAt).toLocaleString()}</small>
+                        <div
+                            className={`mt-2 overflow-auto text-black ${note.isExpanded ? "block" : "line-clamp-7"
+                                }`}
+                        >
+                            <ReactMarkdown>{note.content}</ReactMarkdown>
+                        </div>
+                        <div className="flex mt-auto space-x-2">
+                            <button
+                                onClick={() => toggleExpand(note.id)}
+                                className="px-4 py-2 text-white bg-blue-600 rounded"
+                            >
+                                {note.isExpanded ? "Ver menos" : "Ver más"}
+                            </button>
+                            <button
+                                onClick={() => handleDelete(note.id)}
+                                className="px-4 py-2 text-white bg-red-800 rounded"
+                            >
+                                Borrar
+                            </button>
+                        </div>
+                    </div>
+                ))}
+            </div>
 
         </div>
     );
+
 }
 
 export default Notes;
