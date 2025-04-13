@@ -65,7 +65,7 @@ function Notes() {
                 <input
                     type="text"
                     placeholder="Ej. Ideas para el proyecto"
-                    className="w-full rounded-md border border-[#effe8a] bg-white p-3 text-black focus:border-[#effe8a] focus:outline-none focus:ring-1 focus:ring-[#effe8a]"
+                    className="w-full rounded-md border border-[#effe8a] bg-gray-300 p-3 text-black focus:border-[#effe8a] focus:outline-none focus:ring-1 focus:ring-[#effe8a]"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                 />
@@ -76,7 +76,7 @@ function Notes() {
                 
                 <textarea
                     placeholder="Ej. ## Título grande\nEscribí lo que quieras..."
-                    className="w-full h-40 rounded-md border border-[#effe8a] bg-white p-3 text-black resize-none focus:border-[#effe8a] focus:outline-none focus:ring-1 focus:ring-[#effe8a]"
+                    className="w-full h-40 rounded-md border border-[#effe8a] bg-gray-300 p-3 text-black resize-none focus:border-[#effe8a] focus:outline-none focus:ring-1 focus:ring-[#effe8a]"
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 />
@@ -108,13 +108,13 @@ function Notes() {
                         <div className="flex mt-auto space-x-2">
                             <button
                                 onClick={() => toggleExpand(note.id)}
-                                className="px-4 py-2 text-white bg-blue-600 rounded"
+                                className="px-4 py-2 text-black bg-[#e5f397] rounded"
                             >
                                 {note.isExpanded ? "Ver menos" : "Ver más"}
                             </button>
                             <button
                                 onClick={() => handleDelete(note.id)}
-                                className="px-4 py-2 text-white bg-red-800 rounded"
+                                className="px-4 py-2 text-black rounded bg-sky-200"
                             >
                                 Borrar
                             </button>
