@@ -24,7 +24,7 @@ function Navbar() {
                         <li>Inicio</li>
                     </Link>
                     <Link href={"/notes"} className="transition-transform duration-300 ease-in-out transform hover:scale-110 motion-reduce:transform-none">
-                        <li>Blog</li>
+                        <li>Notas</li>
                     </Link>
                 </ul>
             </div>
