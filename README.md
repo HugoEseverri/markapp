@@ -1,36 +1,75 @@
 # Mark App
 
-**Mark App** es una aplicación web diseñada para facilitar la creación, visualización y gestión de notas en formato Markdown de manera eficiente y en tiempo real. Con una interfaz intuitiva, Mark App permite a los usuarios escribir y organizar sus notas, adaptándose a sus dispositivos de forma sencilla.
+Editor de notas en **Markdown** con vista previa en vivo, búsqueda instantánea y tags. Se usa sin registrarse: abrís la app y empezás a escribir, y todo se guarda solo en el navegador.
 
-## Tecnologías utilizadas
+## Funciones
 
-El proyecto ha sido desarrollado utilizando una serie de tecnologías modernas que aseguran una experiencia de usuario fluida y rápida:
+- **Editor con vista previa en vivo**: tres modos (Editar, Dividido y Vista previa), con resaltado de sintaxis y continuación automática de listas.
+- **Barra de formato y atajos**: negrita, cursiva, tachado, títulos, citas, listas, checklists, código y links. `Ctrl+B`, `Ctrl+I`, `Ctrl+E` y `Ctrl+Shift+X`.
+- **Markdown con extensiones de GitHub**: tablas, checklists, tachado y bloques de código con colores.
+- **Autoguardado**: cada cambio se guarda mientras escribís, con indicador de estado.
+- **Búsqueda instantánea**: paleta de comandos con `Ctrl+K` que busca en títulos y contenido, sin importar tildes ni mayúsculas.
+- **Tags automáticos**: escribir `#algo` en una nota lo convierte en un filtro de la barra lateral.
+- **Notas fijadas y papelera**: lo importante queda arriba y lo borrado se puede restaurar.
+- **Importar y exportar `.md`**: las notas se descargan como archivos Markdown comunes y se pueden importar archivos existentes.
+- **Tema claro y oscuro**: sigue al sistema o se elige a mano, y se recuerda.
+- **Responsive**: en celulares se ve la lista o la nota de a una.
 
-### **Frontend:**
-- **React**: Framework JavaScript utilizado para construir la interfaz de usuario interactiva y dinámica.
-- **Next.js**: Framework React para el desarrollo de aplicaciones web que facilita la creación de aplicaciones web y sitios estáticos, optimizando el rendimiento y la carga.
-- **Tailwind CSS**: Un framework CSS de utilidad que permite crear interfaces de usuario personalizadas y atractivas de forma rápida y eficiente.
-- **Framer Motion**: Biblioteca para animaciones y transiciones suaves dentro de la aplicación, mejorando la experiencia visual.
-- **Image Optimization**: Uso de imágenes optimizadas con Next.js, mejorando el rendimiento del sitio y la carga de imágenes.
+## Tecnologías
 
-### **Notas con Markdown**
-- **Markdown** es el lenguaje elegido para la redacción de notas. Su sintaxis simple permite estructurar textos con títulos, listas, énfasis, enlaces y más, de forma rápida y legible.
-- Las notas escritas en Markdown se renderizan en tiempo real, permitiendo al usuario ver cómo lucirá el contenido final mientras escribe.
+- **[Next.js 15](https://nextjs.org)** (App Router) y **React 19**, con **TypeScript**.
+- **[Tailwind CSS 4](https://tailwindcss.com)**, con design tokens para el tema claro y oscuro.
+- **[CodeMirror 6](https://codemirror.net)** como editor.
+- **[react-markdown](https://github.com/remarkjs/react-markdown)** con `remark-gfm` y `rehype-highlight` para renderizar.
+- **[Framer Motion](https://motion.dev)** para las animaciones.
 
-### **Backend:**
-- **Node.js**: Entorno de ejecución JavaScript utilizado para construir el servidor.
-- **Express**: Framework de Node.js que facilita la creación de API RESTful para la interacción con el frontend.
-- **MongoDB** (opcional en el futuro): Base de datos NoSQL que puede ser utilizada para almacenar notas y datos del usuario.
-  
-## ¿De qué trata Mark App?
+## Cómo correrlo
 
-Mark App es una plataforma creada para mejorar la productividad de los usuarios al tomar notas y redactar contenido utilizando **Markdown**, un lenguaje de marcado ligero. Algunas de sus principales características son:
+Necesitás Node.js 20 o superior.
 
-- **Interfaz sencilla y moderna**: Permite escribir notas de manera rápida y fácil, con un diseño limpio y funcional.
-- **Vista previa en tiempo real**: Los usuarios pueden ver cómo quedarán sus notas mientras las escriben.
-- **Accesibilidad multiplataforma**: Disponible en todos los dispositivos, como computadoras, teléfonos y tabletas.
-- **Personalización**: Los usuarios pueden adaptar la aplicación a sus necesidades, eligiendo entre diferentes temas y configuraciones.
-  
-Mark App tiene como objetivo ser la herramienta perfecta para quienes buscan una forma eficiente de escribir y organizar sus ideas, ayudando a aumentar la productividad y a mantener un flujo de trabajo organizado y accesible en todo momento.
+```bash
+cd mini-notas
+npm install
+npm run dev
+```
 
----
+Después abrí [http://localhost:3000](http://localhost:3000). La app de notas está en `/app`.
+
+| Comando | Qué hace |
+| --- | --- |
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción |
+| `npm start` | Sirve el build de producción |
+| `npm run lint` | Revisa el código con ESLint |
+
+## Estructura
+
+```
+mini-notas/src
+├── app
+│   ├── (marketing)     # Landing: navbar, secciones y footer
+│   └── (app)/app       # La app de notas, a pantalla completa
+├── components
+│   ├── landing         # Secciones de la landing
+│   ├── notes           # Barra lateral, editor, vista previa, paleta de comandos
+│   └── ui              # Botones, inputs, íconos y otros componentes base
+└── lib
+    ├── editor          # Comandos de formato para CodeMirror
+    └── notes           # Modelo de datos, almacenamiento, búsqueda e import/export
+```
+
+El almacenamiento está detrás de la interfaz `NotesRepository` (`lib/notes/types.ts`). Hoy la implementa `localStorage`, y para pasar a un backend alcanza con escribir otra implementación, sin tocar los componentes.
+
+## Dónde se guardan las notas
+
+En el `localStorage` del navegador, en el dispositivo donde las escribiste. No se envían a ningún servidor. Si borrás los datos del navegador, las notas se pierden: para llevarlas a otro lado, exportalas como `.md`.
+
+## Próximos pasos
+
+- Cuentas de usuario y sincronización entre dispositivos.
+- Compartir notas con un link público de solo lectura.
+- Funcionar offline como PWA.
+
+## Autor
+
+**Hugo Omar Eseverri**: [Portfolio](https://portfoliohugoeseverri.netlify.app/) · [GitHub](https://github.com/HugoEseverri/) · [LinkedIn](https://www.linkedin.com/in/hugo-omar-eseverri/)

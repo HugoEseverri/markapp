@@ -245,3 +245,9 @@ body {
 .hljs-deletion {
   color: #e5534b;
 }
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

@@ -24,8 +24,10 @@ const socials = [
 ]
 
 const navLinks = [
-    { href: "/", label: "Inicio" },
-    { href: "/app", label: "Notas" },
+    { href: "/#funciones", label: "Funciones" },
+    { href: "/#demo", label: "Probalo" },
+    { href: "/#preguntas", label: "Preguntas" },
+    { href: "/app", label: "Abrir la app" },
 ]
 
 const contactLinks = [

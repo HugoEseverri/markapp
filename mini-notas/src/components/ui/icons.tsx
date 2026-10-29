@@ -43,3 +43,9 @@ export const ListIcon = base(<path d="M9 6h11M9 12h11M9 18h11M4.5 6h.01M4.5 12h.
 export const ChecklistIcon = base(<><rect x="3" y="4" width="6" height="6" rx="1" /><path d="m4.5 16 1.5 1.5 3-3M13 7h8M13 16h8" /></>);
 export const CodeIcon = base(<path d="m8 7-5 5 5 5M16 7l5 5-5 5" />);
 export const LinkIcon = base(<><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1" /><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" /></>);
+export const EyeIcon = base(<><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z" /><circle cx="12" cy="12" r="3" /></>);
+export const MoonIcon = base(<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z" />);
+export const KeyboardIcon = base(<><rect x="2" y="6" width="20" height="12" rx="2" /><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10" /></>);
+export const ChevronDownIcon = base(<path d="m6 9 6 6 6-6" />);
+export const ArrowRightIcon = base(<path d="M5 12h14M13 5l7 7-7 7" />);
+export const SaveIcon = base(<><path d="M5 3h11l3 3v15H5Z" /><path d="M8 3v5h7M8 21v-7h8v7" /></>);

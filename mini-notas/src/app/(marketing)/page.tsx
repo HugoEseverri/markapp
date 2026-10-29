@@ -1,21 +1,17 @@
-
-import Caracteristicas from "@/components/Home/Caracteristicas/Caracteristicas";
-import Down from "@/components/Home/Down/Down";
-import LowBody from "@/components/Home/LowBody/LowerBody";
-import MiddleBody from "@/components/Home/MiddleBody/MiddleBody";
-import MiddleLowBody from "@/components/Home/MiddleLowBody/MiddleLowBody";
-import UpperBody from "@/components/Home/UpperBody/UpperBody";
-
+import Hero from "@/components/landing/Hero";
+import Features from "@/components/landing/Features";
+import LiveDemo from "@/components/landing/LiveDemo";
+import Faq from "@/components/landing/Faq";
+import CallToAction from "@/components/landing/CallToAction";
 
 export default function Home() {
   return (
-    <div>
-      <UpperBody />
-      <MiddleBody />
-      <MiddleLowBody />
-      <LowBody />
-      <Down />
-      <Caracteristicas />
-    </div>
+    <>
+      <Hero />
+      <Features />
+      <LiveDemo />
+      <Faq />
+      <CallToAction />
+    </>
   );
 }

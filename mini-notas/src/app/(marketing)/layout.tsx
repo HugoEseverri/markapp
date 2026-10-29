@@ -9,7 +9,7 @@ export default function MarketingLayout({
   return (
     <>
       <Navbar />
-      <main className="bg-paper">{children}</main>
+      <main className="overflow-x-clip">{children}</main>
       <Footer />
     </>
   );

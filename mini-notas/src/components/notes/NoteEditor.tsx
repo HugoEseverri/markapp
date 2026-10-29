@@ -78,7 +78,7 @@ function NoteEditor({ note, mode, onModeChange, onChange, onTrash, onRestore, on
                 </IconButton>
 
                 {showEditor && (
-                    <div className="flex items-center min-w-0 gap-0.5 overflow-x-auto" role="toolbar" aria-label="Formato">
+                    <div className="flex items-center min-w-0 gap-0.5 overflow-x-auto [scrollbar-width:none]" role="toolbar" aria-label="Formato">
                         {formatButtons.map(({ action, label, Icon }) => (
                             <IconButton
                                 key={action}

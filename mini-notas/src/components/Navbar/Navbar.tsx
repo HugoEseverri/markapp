@@ -1,54 +1,47 @@
-"use client"
-
 import React from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { cn } from '@/lib/cn'
 import ThemeToggle from '@/components/ui/ThemeToggle'
+import { buttonStyles } from '@/components/ui/Button'
 
 const links = [
-    { href: "/", label: "Inicio" },
-    { href: "/app", label: "Notas" },
+    { href: "/#funciones", label: "Funciones" },
+    { href: "/#demo", label: "Probalo" },
+    { href: "/#preguntas", label: "Preguntas" },
 ]
 
 function Navbar() {
-    const pathname = usePathname()
-
     return (
-        <header className="sticky top-0 z-40 h-[75px] border-b border-border bg-background/80 backdrop-blur-md">
-            <nav className="relative flex items-center justify-between h-full px-4">
-
-                <Link href="/" className="flex items-center gap-2">
+        <header className="sticky top-0 z-40 border-b border-border bg-background/80 backdrop-blur-md">
+            <nav className="flex items-center justify-between h-16 max-w-6xl gap-4 px-4 mx-auto sm:px-6">
+                <Link href="/" className="flex items-center gap-2 text-lg font-semibold">
                     <Image
                         src="/logo.png"
                         alt=""
-                        width={40}
-                        height={40}
+                        width={32}
+                        height={32}
                         className="object-contain dark:invert"
                         priority
                     />
-                    <span className="text-xl font-semibold">Mark App</span>
+                    Mark App
                 </Link>
 
-                <ul className="flex gap-8 sm:-translate-x-1/2 sm:absolute left-1/2">
+                <ul className="items-center hidden gap-8 text-sm md:flex">
                     {links.map(({ href, label }) => (
                         <li key={href}>
-                            <Link
-                                href={href}
-                                aria-current={pathname === href ? "page" : undefined}
-                                className={cn(
-                                    "transition-colors hover:text-foreground",
-                                    pathname === href ? "text-foreground font-semibold" : "text-muted"
-                                )}
-                            >
+                            <Link href={href} className="transition-colors text-muted hover:text-foreground">
                                 {label}
                             </Link>
                         </li>
                     ))}
                 </ul>
 
-                <ThemeToggle />
+                <div className="flex items-center gap-2">
+                    <ThemeToggle />
+                    <Link href="/app" className={buttonStyles({ size: "sm" })}>
+                        Abrir la app
+                    </Link>
+                </div>
             </nav>
         </header>
     )

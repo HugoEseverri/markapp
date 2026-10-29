@@ -15,7 +15,13 @@ export const metadata: Metadata = {
     default: "Mark App",
     template: "%s · Mark App",
   },
-  description: "Escribí y organizá tus notas en Markdown, rápido y desde cualquier dispositivo.",
+  description: "Editor de notas en Markdown con vista previa en vivo, búsqueda instantánea y tags. Sin registrarte.",
+  openGraph: {
+    title: "Mark App",
+    description: "Editor de notas en Markdown con vista previa en vivo, búsqueda instantánea y tags. Sin registrarte.",
+    type: "website",
+    locale: "es_AR",
+  },
 };
 
 export default function RootLayout({
