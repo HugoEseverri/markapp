@@ -1,26 +1,94 @@
 @import "tailwindcss";
 
+/* Tokens de marca: fijos, no cambian con el tema */
+@theme {
+  --color-lime: #effe8a;
+  --color-lime-soft: #e2ed95;
+  --color-lime-strong: #d9e86b;
+  --color-ink: #0e1111;
+  --color-ink-soft: #161b1c;
+  --color-paper: #f9fafb;
+
+  --font-sans: var(--font-prompt), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* Tokens semánticos: cambian entre claro y oscuro */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f9fafb;
+  --foreground: #0e1111;
+  --surface: #ffffff;
+  --muted: #5b6366;
+  --border: #e3e6e8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0e1111;
+    --foreground: #ededed;
+    --surface: #161b1c;
+    --muted: #9aa3a6;
+    --border: #2a3133;
+  }
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-surface: var(--surface);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: 'Prompt', sans-serif;
+}
+
+/* Estilos mínimos para el Markdown renderizado */
+.markdown > * + * {
+  margin-top: 0.75em;
+}
+.markdown h1 {
+  font-size: 1.5em;
+  font-weight: 700;
+}
+.markdown h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+.markdown h3 {
+  font-weight: 600;
+}
+.markdown ul {
+  list-style: disc;
+  padding-left: 1.25em;
+}
+.markdown ol {
+  list-style: decimal;
+  padding-left: 1.25em;
+}
+.markdown a {
+  text-decoration: underline;
+}
+.markdown blockquote {
+  border-left: 3px solid var(--color-lime-strong);
+  padding-left: 0.75em;
+  color: var(--muted);
+}
+.markdown code {
+  font-family: ui-monospace, monospace;
+  font-size: 0.9em;
+  background: color-mix(in srgb, var(--foreground) 8%, transparent);
+  padding: 0.1em 0.3em;
+  border-radius: 0.25em;
+}
+.markdown pre {
+  overflow-x: auto;
+  background: color-mix(in srgb, var(--foreground) 8%, transparent);
+  padding: 0.75em;
+  border-radius: 0.5em;
+}
+.markdown pre code {
+  background: none;
+  padding: 0;
 }

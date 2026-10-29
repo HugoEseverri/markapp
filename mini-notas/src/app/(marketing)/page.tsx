@@ -1,5 +1,5 @@
 
-import Caracteristicas from "@/components/Home/Características/Características";
+import Caracteristicas from "@/components/Home/Caracteristicas/Caracteristicas";
 import Down from "@/components/Home/Down/Down";
 import LowBody from "@/components/Home/LowBody/LowerBody";
 import MiddleBody from "@/components/Home/MiddleBody/MiddleBody";

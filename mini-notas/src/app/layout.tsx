@@ -1,22 +1,19 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Prompt } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/Navbar/Navbar";
-import Footer from "@/components/Footer/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const prompt = Prompt({
+  variable: "--font-prompt",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Mark App",
-  description: "Anotaciones rápidas en la nube, edición de notas, markdown.",
+  title: {
+    default: "Mark App",
+    template: "%s · Mark App",
+  },
+  description: "Escribí y organizá tus notas en Markdown, rápido y desde cualquier dispositivo.",
 };
 
 export default function RootLayout({
@@ -25,23 +22,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Prompt:wght@400;600;700&display=swap"
-          rel="stylesheet"
-        />
-      </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <Navbar />
-        
-        <main className="bg-gray-50">
-          {children}
-        </main>
-
-        <Footer />
+    <html lang="es">
+      <body className={`${prompt.variable} font-sans antialiased`}>
+        {children}
       </body>
     </html>
   );
