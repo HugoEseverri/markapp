@@ -2,7 +2,7 @@ import type { Note, NotesRepository } from "./types";
 
 const STORAGE_KEY = "notes";
 
-// Acepta el formato viejo (con isExpanded y sin updatedAt) y lo normaliza
+// Acepta formatos anteriores (con isExpanded, sin updatedAt/pinned/deletedAt) y los normaliza
 function normalize(raw: unknown): Note | null {
     if (!raw || typeof raw !== "object") return null;
     const n = raw as Record<string, unknown>;
@@ -13,8 +13,10 @@ function normalize(raw: unknown): Note | null {
         id: n.id,
         title: typeof n.title === "string" ? n.title : "",
         content: typeof n.content === "string" ? n.content : "",
+        pinned: n.pinned === true,
         createdAt,
         updatedAt: typeof n.updatedAt === "number" ? n.updatedAt : createdAt,
+        deletedAt: typeof n.deletedAt === "number" ? n.deletedAt : null,
     };
 }
 
@@ -37,13 +39,15 @@ export const localRepository: NotesRepository = {
         return read();
     },
     async upsert(note) {
-        const notes = read();
-        const index = notes.findIndex((n) => n.id === note.id);
-        if (index === -1) notes.push(note);
-        else notes[index] = note;
-        write(notes);
+        await localRepository.upsertMany([note]);
     },
-    async remove(id) {
-        write(read().filter((n) => n.id !== id));
+    async upsertMany(incoming) {
+        const byId = new Map(read().map((n) => [n.id, n]));
+        for (const note of incoming) byId.set(note.id, note);
+        write([...byId.values()]);
+    },
+    async remove(ids) {
+        const toRemove = new Set(ids);
+        write(read().filter((n) => !toRemove.has(n.id)));
     },
 };

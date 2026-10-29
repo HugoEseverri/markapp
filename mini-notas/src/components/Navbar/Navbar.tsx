@@ -5,6 +5,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { cn } from '@/lib/cn'
+import ThemeToggle from '@/components/ui/ThemeToggle'
 
 const links = [
     { href: "/", label: "Inicio" },
@@ -24,7 +25,7 @@ function Navbar() {
                         alt=""
                         width={40}
                         height={40}
-                        className="object-contain"
+                        className="object-contain dark:invert"
                         priority
                     />
                     <span className="text-xl font-semibold">Mark App</span>
@@ -46,6 +47,8 @@ function Navbar() {
                         </li>
                     ))}
                 </ul>
+
+                <ThemeToggle />
             </nav>
         </header>
     )

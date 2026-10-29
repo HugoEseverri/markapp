@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import NotesEditor from "@/components/notes/NotesEditor";
+import NotesApp from "@/components/notes/NotesApp";
 
 export const metadata: Metadata = {
   title: "Notas",
 };
 
 export default function AppPage() {
-  return <NotesEditor />;
+  return <NotesApp />;
 }
